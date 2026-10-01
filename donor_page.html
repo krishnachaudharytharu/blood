@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Page </title>
+    <style>
+        .first_box {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .box_01 {
+            text-align: center;
+            color: red;
+
+
+        }
+
+        .second_box {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .box_02 {
+            width: 100vw;
+            height: 60vh;
+
+
+            text-align: center;
+            background-color: rgb(22, 22, 82);
+        }
+
+        .third_box {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .box-03 {
+            width: 100vw;
+            height: 80vh;
+
+
+            text-align: center;
+            background-color: rgb(37, 147, 123);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first_box">
+        <div class="box_01">
+            <h2>Become a Blood Donor </h2>
+            <niv>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/007/063/118/small_2x/blood-drop-isolated-on-white-background-free-vector.jpg"
+                    width="344" alt="blood">
+            </niv>
+            <h3>"Your one donation can save a life."</h3>
+            <br>
+            <p>Blood donation is a simple way to help people in need.if you are willing to donate blood,please fill out
+                of the form below with your correct information.Your details will help us connect blood donors with
+                people who need blood.</p>
+            <br><br>
+
+
+        </div>
+    </div>
+    <div class="second_box">
+        <div class="box_02">
+            <h3>Before filling the form:</h3>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Enter Your name" id="name" required><br><br>
+                <label for="email">Email ID:</label>
+                <input type="text" placeholder="Enetr Your email Id" id="email" required><br><br>
+                <label for="phone">phone number:</label>
+                <input type="tel" placeholder="Enter Contact number" id="phone" required><br><br>
+                <label for="city2">City:</label>
+                <input type="text" placeholder="Enter Your city" id="city2" required>
+            </form>
+            <big>Make sure the information provided is accurate.</big>
+            <big>Your information should be used only for blood donation purposes.</big>
+            <br><br>
+            <h3>Donate Blood "Save Lives"Be Someone's Hope</h3>
+        </div>
+    </div>
+    <div class="third_box">
+        <div class="box-03">
+            <h3>Donor Register Form:</h3>
+            <form>
+                <label for="full_name">Full Name:</label>
+                <input type="text" placeholder="Enter your full name" id="full_name" required><br><br>
+                <label for="age">Age:</label>
+                <input type="text" placeholder="Entter your age" id="age" required><br><br>
+                <label>Gender:</label>
+                <label for="genderidm"></label>
+                <input type="radio" value="gender m" name="gender" id="genderidm">Male
+                <label for="genderidf"></label>
+                <input type="radio" value="gender f" name="gender" id="genderidf">Female
+                <br><br>
+                <b>Choose Your Blood Group:</b>
+
+                <select>
+
+
+                    <option disabled selected>Blood Group</option>
+                    <option>A+</option>
+                    <option>A-</option>
+
+                    <option>B+</option>
+
+                    <option>B-</option>
+                    <option>AB+</option>
+
+                    <option>AB-</option>
+                    <option>O+</option>
+
+                    <option>O-</option>
+
+
+
+
+                </select>
+                <br><br>
+                <h3>Select your country:</h3>
+                <label>Country:</label>
+
+                <select id="country">
+                    <option disabled selected>Choose your country:</option>
+                    <option value="nepal">Nepal</option>
+                    <option value="india">India</option>
+                    <option value="china">China</option>
+                    <option value="usa">America</option>
+                    <option value="aus">Austrlia</option>
+                    <option value="japan">Japan</option>
+                    <option value="south">SouthAfrica</option>
+                    <option value="kprea">Korea</option>
+                    <option value="thai">Thailand</option>
+                </select>
+
+                <br><br>
+
+                <label>City:</label>
+                <select id="city">
+                    <option value="">Select city</option>
+                </select>
+                <br><br>
+                <label for="phone:">Phone number:</label>
+                <input type="tel" placeholder="Enter Your Phone number" id="phone" required>
+                <br><br>
+                <label for="email">Email Id:</label>
+                <input type="email" placeholder="enter your email id" id="email" required>
+                <br><br>
+                <label for="date">Last Blood donation date:</label>
+                <input type="date" placeholder="Last donation date" id="date" required>
+                <br><br>
+                <button type="submit">Register done</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const country = document.getElementById("country");
+        const city = document.getElementById("city");
+        const cities = {
+            nepal: ["Kathmandu", "Birgunj", "Hetauda", "Bakatpur", "Jankpur", "Simra", "Itahri", "Butwal", "Pokhara", "Gorakha", "Lumbani"],
+            india: ["Delhi", "Mumbai", "Bangalore", "Chennai", "Patna", "Kolkata", "Hydrabaad", "Pune", "Gorakhapur"],
+            usa: ["Chicago", "Newyork", "Calfonia", "Los angles", "Phonenix", "Houston", "San Diego"],
+            china: ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu", "Chongquing", "Wuhan", "Kunming"],
+            aus: ["Sydney", "Melbourne", "Perth", "Canberra", "Gold Cost", "Hobart", "Darwin", "Geelong", "Toowoomba"]
+        };
+        country.addEventListener("change", function () {
+            city.innerHTML = '<option value="">Select City</option>';
+            const selectedCountry = country.value;
+
+            if (selectedCountry && cities[selectedCountry]) {
+                cities[selectedCountry].forEach(function (cityName) {
+
+
+                    const option = document.createElement("option");
+                    option.value = cityName;
+                    option.textContent = cityName;
+                    city.appendChild(option);
+                });
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>

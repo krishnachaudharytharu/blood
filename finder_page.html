@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Finder Page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .blood-finder{
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        
+        }
+        .finder-01{
+            margin: 10px 0px 0px 0px ;
+            text-align: center;
+            width: 100vw;
+            height: 25vh;
+            color: red;
+            margin: 2px;
+            padding: 2px;
+        
+        }
+        .blood_container-01{
+            display: flex;
+            justify-content: center;
+        }
+        .container-01{
+            width: 25vw;
+            height: 50vh;
+            text-align: center;
+            margin: 5px;
+            border: 2px black solid;
+            border-radius: 5px;
+            align-items: center;
+            align-self: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="blood-finder">
+        <div class="finder-01">
+            <h2>Blood Finder</h2>
+            <h3>"A small act of kindness can save a life."</h3>
+            <br>
+            <p>Looking for blood? We are here to help.</p>
+            
+            <p>Select your country ,city and blood group to find avilable blood donors near you.</p>
+            <big>Every search can be a step toward saving a life.</big>
+            
+        </div>
+    </div>
+    <div class="blood_container-01">
+        <div class="container-01">
+            <h2>Find a Blood Donor</h2>
+            <br>
+
+            <form>
+                <label for="name">Full name:</label>
+                <input type="text" placeholder="Enter your name" id="name" required>
+                <br><br>
+                <label for="age">Date of birth:</label>
+                <input type="date" placeholder="Enter your date of birth" id="age" required>
+                <br><br>
+                <label for="country">Country:</label>
+                <select id="country">
+                    <option disabled selected>Choose Country name</option>
+                    <option value="nepal">Nepal</option>
+                    <option value="india">India</option>
+                    <option value="china">China</option>
+                    <option value="usa">America</option>
+                </select>
+                <br>
+                <br>
+                <label for="city"> Select City</label>
+                <select id="city">
+                    <option disabled selected>Select city</option>
+                    
+                </select>
+                <br><br>
+                
+                    <div class="gender">
+                        <label for="genderidm">Gander:</label>
+                        <input type="radio" name="male" value="gender m" id="genderidm" required>Male
+                        
+                         <label for="genderidf"></label>
+                        <input type="radio" name="fimale" value="gender f" id="genderidf" required>Female
+                    
+                        
+                        
+                    </div>
+                    <br><br>
+                   
+                        <b>Choose your blood group:</b>
+                        <select id="blood">
+                            <option disabled selected>Blood group</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+
+                        </select>
+        
+          
+
+
+            </form>
+        </div>
+    </div>
+    <script>
+         const country = document.getElementById("country");
+        const city = document.getElementById("city");
+        const cities = {
+            nepal: ["Kathmandu", "Birgunj", "Hetauda", "Bakatpur", "Jankpur", "Simra","Itahri","Butwal","Pokhara","Gorakha","Lumbani"],
+            india: ["Delhi", "Mumbai", "Bangalore", "Chennai", "Patna", "Kolkata","Hydrabaad","Pune","Gorakhapur"],
+            usa: ["Chicago", "Newyork", "Calfonia","Los angles","Phonenix","Houston","San Diego"],
+            china:["Beijing","Shanghai","Guangzhou","Shenzhen","Chengdu","Chongquing","Wuhan","Kunming"],
+            aus:["Sydney","Melbourne","Perth","Canberra","Gold Cost","Hobart","Darwin","Geelong","Toowoomba"]
+        };
+        country.addEventListener("change", function () {
+            city.innerHTML = '<option value="">Select City</option>';
+            const selectedCountry = country.value;
+
+            if (selectedCountry && cities[selectedCountry]) {
+                cities[selectedCountry].forEach(function (cityName) {
+
+
+                    const option = document.createElement("option");
+                    option.value = cityName;
+                    option.textContent = cityName;
+                    city.appendChild(option);
+                });
+            }
+        });
+       
+    </script>
+    
+</body>
+</html>
